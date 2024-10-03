@@ -8,12 +8,12 @@ let
   inherit (lib.modules) mkIf;
 in
 {
-  config = mkIf osConfig.garden.programs.gui.discord.enable {
-    home.packages = mkIf pkgs.stdenv.isLinux [
-      (pkgs.discord.override {
-        withOpenASAR = true;
-        withVencord = true;
-      })
-    ];
-  };
+  home.packages =
+    mkIf (osConfig.garden.programs.gui.discord.enable && pkgs.stdenv.hostPlatform.isLinux)
+      [
+        (pkgs.discord.override {
+          withOpenASAR = true;
+          withVencord = true;
+        })
+      ];
 }
