@@ -53,7 +53,9 @@ in
       };
 
       launchers = {
-        rofi.enable = mkEnableOption "Enable rofi launcher";
+        rofi.enable = mkEnableOption "Enable rofi launcher" // {
+          default = cfg.gui.enable;
+        };
         wofi.enable = mkEnableOption "Enable wofi launcher";
       };
 
@@ -79,11 +81,11 @@ in
       };
 
       terminals = {
-        wezterm.enable = mkEnableOption "WezTerm terminal emulator" // {
+        kitty.enable = mkEnableOption "Kitty terminal emulator" // {
           default = cfg.gui.enable;
         };
+        wezterm.enable = mkEnableOption "WezTerm terminal emulator";
         ghostty.enable = mkEnableOption "Ghostty terminal emulator";
-        kitty.enable = mkEnableOption "Kitty terminal emulator";
         alacritty.enable = mkEnableOption "Alacritty terminal emulator";
       };
 

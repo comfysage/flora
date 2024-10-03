@@ -5,7 +5,6 @@
     ./fs # file system confiurations
     ./gaming # super cool procrastinations related things
     ./hardware # hardware - bluetooth etc.
-    ./networking # networking
     ./programs # programs that are needed on nixos systems, shared system wide
     ./security # keeping the system safe
     ./services # allows for per-system system services to be enabled

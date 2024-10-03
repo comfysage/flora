@@ -2,6 +2,12 @@
 let
   inherit (lib.options) mkOption;
   inherit (lib.types) enum nullOr;
+
+  pagers = [
+    "less" # -FR
+    "bat" # -l help --pager
+    "nvim" # +Man!
+  ];
 in
 {
   options.garden.programs.defaults = {
@@ -40,6 +46,33 @@ in
         "codium"
       ];
       default = "nvim";
+    };
+
+    pager = mkOption {
+      type = enum pagers;
+      default = "less";
+    };
+    manpager = mkOption {
+      type = enum pagers;
+      default = "less";
+    };
+    pagerArgs = mkOption {
+      type = str;
+      default = "-FR";
+    };
+    manpagerArgs = mkOption {
+      type = str;
+      default = "-FR";
+    };
+    pager_str = mkOption {
+      type = str;
+      default = let c = config.garden.programs.defaults; in "${c.pager} ${c.pagerArgs}";
+      internal = true;
+    };
+    manpager_str = mkOption {
+      type = str;
+      default = let c = config.garden.programs.defaults; in "${c.manpager} ${c.manpagerArgs}";
+      internal = true;
     };
 
     launcher = mkOption {

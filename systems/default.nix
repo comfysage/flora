@@ -49,57 +49,13 @@ let
   # always edit this list rather then changing nixosConfigurations or darwinConfigurations
   systems = [
     {
-      host = "hydra";
+      host = "cottage";
       arch = "x86_64";
       target = "nixos";
       modules = [
         laptop
         graphical
       ] ++ concatLists [ shared ];
-    }
-
-    {
-      host = "tatsumaki";
-      arch = "aarch64";
-      target = "darwin";
-      modules = concatLists [ shared ];
-    }
-
-    {
-      host = "amaterasu";
-      arch = "x86_64";
-      target = "nixos";
-      modules = [
-        desktop
-        graphical
-      ] ++ concatLists [ shared ];
-    }
-
-    {
-      host = "valkyrie";
-      arch = "x86_64";
-      target = "nixos";
-      modules = concatLists [
-        wsl
-        shared
-      ];
-    }
-
-    {
-      host = "minerva";
-      arch = "x86_64";
-      target = "nixos";
-      modules = concatLists [
-        server
-        shared
-      ];
-    }
-
-    {
-      host = "lilith";
-      arch = "x86_64";
-      target = "iso";
-      modules = [ headless ];
     }
   ];
 in
