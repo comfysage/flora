@@ -10,7 +10,7 @@
   ];
 
   config.home = {
-    username = "isabel";
-    homeDirectory = osConfig.users.users.isabel.home;
+    username = "comfy";
+    homeDirectory = osConfig.users.users.comfy.home;
   };
 }
