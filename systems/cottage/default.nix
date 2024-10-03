@@ -44,13 +44,7 @@
 
       networking = {
         optimizeTcp = true;
-
         wirelessBackend = "iwd";
-
-        tailscale = {
-          enable = false;
-          isClient = false;
-        };
       };
 
       virtualization = {
