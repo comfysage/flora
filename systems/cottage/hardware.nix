@@ -13,7 +13,10 @@
     "/home/kitchen" = {
       device = "/dev/disk/by-label/Dolphin";
       fsType = "ntfs-3g";
-      options = ["rw" "uid=1000"];
+      options = [
+        "rw"
+        "uid=1000"
+      ];
     };
 
     "/home/comfy" = {
@@ -23,6 +26,6 @@
   };
 
   swapDevices = [
-    {device = "/dev/disk/by-label/swap";}
+    { device = "/dev/disk/by-label/swap"; }
   ];
 }

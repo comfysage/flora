@@ -1,7 +1,8 @@
 { config, ... }:
 let
   cfg = config.garden.programs.defaults;
-in {
+in
+{
   # variables that I want to set globally on all systems
   environment.variables = {
     EDITOR = cfg.editor;
