@@ -20,21 +20,21 @@ let
 
   # hardware profiles
   laptop = hardwareProfilesPath + /laptop; # for laptop type configurations
-  desktop = hardwareProfilesPath + /desktop; # for desktop type configurations
+  # desktop = hardwareProfilesPath + /desktop; # for desktop type configurations
   # for server type configurations
-  server = [
-    headless
-    (hardwareProfilesPath + /server)
-  ];
+  # server = [
+  #   headless
+  #   (hardwareProfilesPath + /server)
+  # ];
   # for wsl systems
-  wsl = [
-    headless
-    (hardwareProfilesPath + /wsl)
-  ];
+  # wsl = [
+  #   headless
+  #   (hardwareProfilesPath + /wsl)
+  # ];
 
   # meta profiles
   graphical = metaProfilesPath + /graphical; # for systems that have a graphical interface
-  headless = metaProfilesPath + /headless; # for headless systems
+  # headless = metaProfilesPath + /headless; # for headless systems
 
   # home-manager
   homes = ../home; # home-manager configurations

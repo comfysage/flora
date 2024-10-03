@@ -5,7 +5,6 @@
     # ./nextcloud.nix
     # ./nix-index.nix
     ./rnnoise.nix
-    ./syncthing.nix
     ./tray.nix
   ];
 }

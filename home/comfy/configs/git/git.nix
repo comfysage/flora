@@ -1,7 +1,7 @@
-{ pkgs, osConfig, ... }:
-let
-  cfg = osConfig.garden.programs.agnostic.git;
-in
+{
+  config,
+  ...
+}:
 {
   programs.git = {
     enable = true;
