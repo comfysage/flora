@@ -13,7 +13,7 @@
     };
 
     system = {
-      mainUser = "isabel";
+      mainUser = "comfy";
 
       boot = {
         loader = "systemd-boot";

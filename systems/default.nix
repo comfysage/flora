@@ -20,21 +20,21 @@ let
 
   # hardware profiles
   laptop = hardwareProfilesPath + /laptop; # for laptop type configurations
-  desktop = hardwareProfilesPath + /desktop; # for desktop type configurations
+  # desktop = hardwareProfilesPath + /desktop; # for desktop type configurations
   # for server type configurations
-  server = [
-    headless
-    (hardwareProfilesPath + /server)
-  ];
+  # server = [
+  #   headless
+  #   (hardwareProfilesPath + /server)
+  # ];
   # for wsl systems
-  wsl = [
-    headless
-    (hardwareProfilesPath + /wsl)
-  ];
+  # wsl = [
+  #   headless
+  #   (hardwareProfilesPath + /wsl)
+  # ];
 
   # meta profiles
   graphical = metaProfilesPath + /graphical; # for systems that have a graphical interface
-  headless = metaProfilesPath + /headless; # for headless systems
+  # headless = metaProfilesPath + /headless; # for headless systems
 
   # home-manager
   homes = ../home; # home-manager configurations
@@ -49,57 +49,13 @@ let
   # always edit this list rather then changing nixosConfigurations or darwinConfigurations
   systems = [
     {
-      host = "hydra";
+      host = "cottage";
       arch = "x86_64";
       target = "nixos";
       modules = [
         laptop
         graphical
       ] ++ concatLists [ shared ];
-    }
-
-    {
-      host = "tatsumaki";
-      arch = "aarch64";
-      target = "darwin";
-      modules = concatLists [ shared ];
-    }
-
-    {
-      host = "amaterasu";
-      arch = "x86_64";
-      target = "nixos";
-      modules = [
-        desktop
-        graphical
-      ] ++ concatLists [ shared ];
-    }
-
-    {
-      host = "valkyrie";
-      arch = "x86_64";
-      target = "nixos";
-      modules = concatLists [
-        wsl
-        shared
-      ];
-    }
-
-    {
-      host = "minerva";
-      arch = "x86_64";
-      target = "nixos";
-      modules = concatLists [
-        server
-        shared
-      ];
-    }
-
-    {
-      host = "lilith";
-      arch = "x86_64";
-      target = "iso";
-      modules = [ headless ];
     }
   ];
 in
