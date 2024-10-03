@@ -1,18 +1,12 @@
-{ pkgs, osConfig, ... }:
+{ osConfig, ... }:
 let
   cfg = osConfig.garden.programs.agnostic.git;
 in
 {
   programs.git = {
     enable = true;
-    package = pkgs.gitFull;
     userName = "isabel";
-    userEmail = "isabel" + "@" + "isabelroses" + "." + "com"; # obsfuscate email to prevent webscrapper spam
-
-    lfs = {
-      enable = true;
-      skipSmudge = true; # we don't want another ctp/userstyles situation
-    };
+    userEmail = "comfy" + "@" + "isabelroses" + "." + "com"; # obsfuscate email to prevent webscrapper spam
 
     # git commit signing
     signing = {
@@ -21,60 +15,23 @@ in
     };
 
     extraConfig = {
-      init.defaultBranch = "main";
-      repack.usedeltabaseoffset = "true";
+      core.editor = osConfig.garden.programs.defaults.editor;
+
+      # Qol
       color.ui = "auto";
       diff.algorithm = "histogram"; # a much better diff
-      help.autocorrect = 10; # 1 second warning to a typo'd command
-
-      core.whitespace = "fix,-indent-with-non-tab,trailing-space,cr-at-eol";
-
-      # nice quality of life improvements
-      branch = {
-        autosetupmerge = "true";
-
-        # sorts branches so the newst ones by latest commit are at the top
-        sort = "committerdate";
-      };
-
-      commit.verbose = true;
-
-      # prune branches that are no longer on the remote
-      fetch.prune = true;
-
-      # equivalent to --ff-only
-      pull.ff = "only";
-
-      push = {
-        # the default functionality is to push the current branch that i am on to the remote
-        default = "current";
-
-        # if a remote does not have a branch that i have, create it
-        autoSetupRemote = true;
-      };
-
-      # nicer diffing for merges
-      merge = {
-        stat = "true";
-        conflictstyle = "zdiff3";
-        tool = "meld";
-      };
-
+      safe.directory = "*";
+      # add some must-use flags
+      pull.rebase = true;
       rebase = {
-        # https://andrewlock.net/working-with-stacked-branches-in-git-is-easier-with-update-refs/
-        updateRefs = true;
-
         autoSquash = true;
         autoStash = true;
       };
-
-      rerere = {
-        enabled = true;
-        autoupdate = true;
-      };
-
-      diff.mnemonicprefix = true;
-
+      commit.gpgsign = true;
+      gpg.format = "ssh";
+      user.signingkey = "~/.ssh/id_rsa.pub";
+      # personal preference
+      init.defaultBranch = "main";
       # prevent data corruption
       transfer.fsckObjects = true;
       fetch.fsckObjects = true;

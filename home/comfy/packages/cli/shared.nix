@@ -27,7 +27,7 @@ in
             jq # json parser
             yq # yaml parser
             # vhs # programmatically make gifs
-            # glow # markdown preview
+            glow # markdown preview
             ;
         }
       );
