@@ -28,7 +28,7 @@
     };
 
     tool = {
-      editor = config.garden.programs.defaults.editor;
+      inherit (config.garden.programs.defaults) editor;
       pager = config.garden.programs.defaults.pager_str;
 
       # Command used to preview a note during interactive fzf mode.

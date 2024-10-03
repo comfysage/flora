@@ -164,7 +164,7 @@ in
           }
 
           #workspaces {
-              font-size: ${font.size}px;
+              font-size: ${toString font.size}px;
               padding-left: 15px;
           }
           #workspaces button {
@@ -180,7 +180,7 @@ in
           }
 
           #tray, #wireplumber, #network, #cpu, #custom-temperature, #disk, #clock {
-              font-size: ${font.size}px;
+              font-size: ${toString font.size}px;
               color: ${custom.text_color};
           }
 
@@ -191,7 +191,7 @@ in
           }
 
           #wireplumber {
-              font-size: ${font.size}px;
+              font-size: ${toString font.size}px;
               padding-left: 15px;
               padding-right: 9px;
               margin-left: 7px;
