@@ -30,7 +30,7 @@ in
       }
       {
         domain = "git.isabelroses.com";
-        alias = "me";
+        alias = "izzy";
         port = 2222;
       }
       {

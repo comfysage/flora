@@ -8,7 +8,7 @@ in
     name = mkOption {
       type = str;
       description = "The name of the font";
-      default = "Maple Mono";
+      default = "Maple Mono NF";
     };
 
     package = mkPackageOption pkgs "maple-mono" { };

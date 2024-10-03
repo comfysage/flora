@@ -7,7 +7,6 @@
 }:
 let
   inherit (lib.modules) mkIf;
-  inherit (lib.lists) optionals;
 
   cfg = osConfig.garden.programs;
 in
@@ -17,26 +16,20 @@ in
     ./izrss.nix
     # ./newsboat.nix
     # ./ranger.nix
-    # ./yazi.nix
+    ./yazi.nix
     # ./zellij.nix
   ];
 
   config = mkIf cfg.tui.enable {
-    home.packages =
-      builtins.attrValues {
-        inherit (pkgs)
-          # wishlist # fancy ssh
-          glow # fancy markdown
-          # fx # fancy jq
-          # gum # a nicer scripting
-          ;
+    home.packages = builtins.attrValues {
+      inherit (pkgs)
+        # wishlist # fancy ssh
+        glow # fancy markdown
+        # fx # fancy jq
+        gum # a nicer scripting
+        ;
 
-        inherit (inputs'.beapkgs.packages) zzz; # code snippets in the cli
-      }
-      ++ optionals cfg.gui.enable (
-        builtins.attrValues {
-          inherit (pkgs) manga-tui; # tui manga finder + reader
-        }
-      );
+      inherit (inputs'.beapkgs.packages) zzz; # code snippets in the cli
+    };
   };
 }

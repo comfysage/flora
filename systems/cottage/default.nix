@@ -4,7 +4,7 @@
   garden = {
     device = {
       type = "hybrid";
-      cpu = "intel";
+      cpu = "amd";
       gpu = null;
       monitors = [ "eDP-1" ];
       hasTPM = true;
@@ -17,7 +17,7 @@
 
       boot = {
         loader = "systemd-boot";
-        secureBoot = false;
+        secureBoot = true;
         tmpOnTmpfs = false;
         loadRecommendedModules = true;
         enableKernelTweaks = true;
@@ -28,12 +28,14 @@
       fs.support = [
         "btrfs"
         "vfat"
+        "ext4"
+        "ntfs"
       ];
       video.enable = true;
       sound.enable = true;
-      bluetooth.enable = false;
+      bluetooth.enable = true;
       printing.enable = false;
-      yubikeySupport.enable = true;
+      yubikeySupport.enable = false;
 
       security = {
         fixWebcam = false;
@@ -47,13 +49,13 @@
 
         tailscale = {
           enable = false;
-          isClient = true;
+          isClient = false;
         };
       };
 
       virtualization = {
         enable = true;
-        docker.enable = true;
+        docker.enable = false;
         qemu.enable = false;
         podman.enable = false;
         distrobox.enable = false;
@@ -83,10 +85,16 @@
           indicator.enable = true;
         };
 
+        bars.ags.enable = false;
+
+        bars.waybar.enable = true;
+
         terminals.kitty.enable = true;
 
         zathura.enable = true;
       };
+
+      gaming.enable = false;
     };
 
     services.cloudflared.enable = true;

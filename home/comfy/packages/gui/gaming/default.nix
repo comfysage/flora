@@ -21,7 +21,7 @@ in
         lutris
         #dolphin-emu # cool emulator
         #yuzu # switch emulator
-        dotnet-runtime_6 # needed by terraria
+        # dotnet-runtime_6 # needed by terraria
         ;
     };
   };

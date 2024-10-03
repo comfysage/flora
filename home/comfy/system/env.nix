@@ -6,7 +6,7 @@
     VISUAL = defaults.editor;
     TERMINAL = defaults.terminal;
     SYSTEMD_PAGERSECURE = "true";
-    PAGER = "less -FR";
+    PAGER = defaults.pager_str;
     FLAKE = osConfig.garden.environment.flakePath;
   };
 }

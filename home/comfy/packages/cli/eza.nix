@@ -21,7 +21,7 @@ in
     extraOptions = [
       "--group"
       "--group-directories-first"
-      "--header"
+      "--no-header"
       "--no-permissions"
       "--octal-permissions"
     ];
